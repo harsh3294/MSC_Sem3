@@ -1,0 +1,153 @@
+>show databases
+MSC_CS    8.00 KiB
+admin    40.00 KiB
+config  108.00 KiB
+local    72.00 KiB
+>use MSC_CS
+'already on db MSC_CS'
+>db.STD_DATA.insertMany([{Name: "Harsh", Age: 21, Hobby: ["Singing","Playing"]},{Name: "Ashok", Age: 23, Hobby:["Cricket","Reading"]}])
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("62daa13b53c9a383be7dd7de"),
+     '1': ObjectId("62daa13b53c9a383be7dd7df") } }
+>db.STD_DATA.insertMany([{Name: "John", Age: 21, Hobby: ["Cricket","Playing"]},{Name: "Tom", Age: 23, Hobby:["Cricket","Reading"]}]) 
+{ acknowledged: true,
+  insertedIds: 
+   { '0': ObjectId("62daa16953c9a383be7dd7e0"),
+     '1': ObjectId("62daa16953c9a383be7dd7e1") } }
+>db.STD_DATA.find()
+{ _id: ObjectId("62daa13b53c9a383be7dd7de"),
+  Name: 'Harsh',
+  Age: 21,
+  Hobby: [ 'Singing', 'Playing' ] }
+{ _id: ObjectId("62daa13b53c9a383be7dd7df"),
+  Name: 'Ashok',
+  Age: 23,
+  Hobby: [ 'Cricket', 'Reading' ] }
+{ _id: ObjectId("62daa16953c9a383be7dd7e0"),
+  Name: 'John',
+  Age: 21,
+  Hobby: [ 'Cricket', 'Playing' ] }
+{ _id: ObjectId("62daa16953c9a383be7dd7e1"),
+  Name: 'Tom',
+  Age: 23,
+  Hobby: [ 'Cricket', 'Reading' ] }
+>db.STD_DATA.findOneAndUpdate({Name:"Ashok"},{$set :{Age:19}})
+{ _id: ObjectId("62daa13b53c9a383be7dd7df"),
+  Name: 'Ashok',
+  Age: 23,
+  Hobby: [ 'Cricket', 'Reading' ] }
+>db.STD_DATA.find({})
+{ _id: ObjectId("62daa13b53c9a383be7dd7de"),
+  Name: 'Harsh',
+  Age: 21,
+  Hobby: [ 'Singing', 'Playing' ] }
+{ _id: ObjectId("62daa13b53c9a383be7dd7df"),
+  Name: 'Ashok',
+  Age: 19,
+  Hobby: [ 'Cricket', 'Reading' ] }
+{ _id: ObjectId("62daa16953c9a383be7dd7e0"),
+  Name: 'John',
+  Age: 21,
+  Hobby: [ 'Cricket', 'Playing' ] }
+{ _id: ObjectId("62daa16953c9a383be7dd7e1"),
+  Name: 'Tom',
+  Age: 23,
+  Hobby: [ 'Cricket', 'Reading' ] }
+>db.STD_DATA.updateMany({Name:"Ashok"},{$set :{Age:15}})
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+>db.STD_DATA.find({})
+{ _id: ObjectId("62daa13b53c9a383be7dd7de"),
+  Name: 'Harsh',
+  Age: 21,
+  Hobby: [ 'Singing', 'Playing' ] }
+{ _id: ObjectId("62daa13b53c9a383be7dd7df"),
+  Name: 'Ashok',
+  Age: 15,
+  Hobby: [ 'Cricket', 'Reading' ] }
+{ _id: ObjectId("62daa16953c9a383be7dd7e0"),
+  Name: 'John',
+  Age: 21,
+  Hobby: [ 'Cricket', 'Playing' ] }
+{ _id: ObjectId("62daa16953c9a383be7dd7e1"),
+  Name: 'Tom',
+  Age: 23,
+  Hobby: [ 'Cricket', 'Reading' ] }
+>db.STD_DATA.updateMany({Name:"Harsh"},{$set :{Mobile:9372685907}})
+{ acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0 }
+>db.STD_DATA.find({})
+{ _id: ObjectId("62daa13b53c9a383be7dd7de"),
+  Name: 'Harsh',
+  Age: 21,
+  Hobby: [ 'Singing', 'Playing' ],
+  Mobile: 9372685907 }
+{ _id: ObjectId("62daa13b53c9a383be7dd7df"),
+  Name: 'Ashok',
+  Age: 15,
+  Hobby: [ 'Cricket', 'Reading' ] }
+{ _id: ObjectId("62daa16953c9a383be7dd7e0"),
+  Name: 'John',
+  Age: 21,
+  Hobby: [ 'Cricket', 'Playing' ] }
+{ _id: ObjectId("62daa16953c9a383be7dd7e1"),
+  Name: 'Tom',
+  Age: 23,
+  Hobby: [ 'Cricket', 'Reading' ] }
+>db.STD_DATA.find({Age:19},{Hobby:"Read"})
+>db.STD_DATA.find({Age:19},{Hobby:["Reading"]})
+>db.STD_DATA.find({Age:15},{Hobby:["Reading"]})
+{ _id: ObjectId("62daa13b53c9a383be7dd7df"),
+  Hobby: [ 'Reading' ] }
+>db.STD_DATA.find({$or: [{age:21},{ hobby:["Cricket"]}]})
+>db.STD_DATA.find({$or: [{Age:21},{ Hobby:["Cricket"]}]})
+{ _id: ObjectId("62daa13b53c9a383be7dd7de"),
+  Name: 'Harsh',
+  Age: 21,
+  Hobby: [ 'Singing', 'Playing' ],
+  Mobile: 9372685907 }
+{ _id: ObjectId("62daa16953c9a383be7dd7e0"),
+  Name: 'John',
+  Age: 21,
+  Hobby: [ 'Cricket', 'Playing' ] }
+>db.STD_DATA.find({}).skip(2).limit(2)
+{ _id: ObjectId("62daa16953c9a383be7dd7e0"),
+  Name: 'John',
+  Age: 21,
+  Hobby: [ 'Cricket', 'Playing' ] }
+{ _id: ObjectId("62daa16953c9a383be7dd7e1"),
+  Name: 'Tom',
+  Age: 23,
+  Hobby: [ 'Cricket', 'Reading' ] }
+>db.STD_DATA.find({}).sort({name:-1})
+{ _id: ObjectId("62daa13b53c9a383be7dd7de"),
+  Name: 'Harsh',
+  Age: 21,
+  Hobby: [ 'Singing', 'Playing' ],
+  Mobile: 9372685907 }
+{ _id: ObjectId("62daa13b53c9a383be7dd7df"),
+  Name: 'Ashok',
+  Age: 15,
+  Hobby: [ 'Cricket', 'Reading' ] }
+{ _id: ObjectId("62daa16953c9a383be7dd7e0"),
+  Name: 'John',
+  Age: 21,
+  Hobby: [ 'Cricket', 'Playing' ] }
+{ _id: ObjectId("62daa16953c9a383be7dd7e1"),
+  Name: 'Tom',
+  Age: 23,
+  Hobby: [ 'Cricket', 'Reading' ] }
+>db.STD_DATA.find({}).count({})
+4
+
+
+
+
+db.collection.find({condition},{Name:1})-- to print only name from the entire documents

@@ -1,0 +1,72 @@
+# to get the data direct from cmd 
+echo "foo foo quux labs foo bar quux" | python .\mapper.py  | sort | python .\reducer.py
+
+# to get the data from file
+type .\sample.txt | python .\mapper.py | sort |python .\reducer.py 
+
+# file permission 
+hadoop dfs -chmod -R 1777 path
+hadoop dfs -chmod -R a+x hdfs://localhost:9000/Data/mapper.py
+
+#Copy local example data to HDFS
+hadoop dfs -copyFromLocal "F:\Practicals\BigData\Practical4\Data"  hdfs://localhost:9000/Harsh
+
+
+#Run the MapReduce job
+hadoop jar C:\Hadoop\hadoop-3.3.3\share\hadoop\tools\lib\hadoop-streaming-3.3.3.jar -file F:\Practicals\BigData\Practical4\mapper.py -mapper "python mapper.py" -file F:\Practicals\BigData\Practical4\reducer.py -reducer "python reducer.py" -input hdfs://localhost:9000/Harsh/sample.txt -output /output
+
+
+#to get the output 
+hadoop fs -cat /output/part-00000
+
+
+#to check the file is uploaded to hdfs
+hadoop dfs -ls /Harsh
+
+
+#if name node is started or shutting down after running the instance
+hadoop namenode -format
+hdfs namenode -format
+
+
+
+
+
+
+
+
+
+
+
++======================================================================================================+
+hadoop jar "C:\Hadoop\hadoop-3.3.3\share\hadoop\tools\lib\hadoop-streaming-3.3.3.jar"  -mapper "hdfs://localhost:9000/Data/mapper.py"  -reducer hdfs://localhost:9000/Data/reducer.py   -file "F:\Practicals\BigData\Practical4\mapper.py"  -file "F:\Practicals\BigData\Practical4\reducer.py"  -input hdfs://localhost:9000/Data/*  -output hdfs://localhost:9000/result
+
+
+
+
+hadoop jar "C:\Hadoop\hadoop-3.3.3\share\hadoop\tools\lib\hadoop-streaming-3.3.3.jar"   -mapper "hdfs://localhost:9000/Data/mapper.py"  -reducer hdfs://localhost:9000/Data/reducer.py   -file "F:\Practicals\BigData\Practical4\mapper.py"  -file "F:\Practicals\BigData\Practical4\reducer.py"  -input hdfs://localhost:9000/Data/sample.txt  -output result
+
+
+
+
+
+https://stackoverflow.com/questions/45687607/waiting-for-am-container-to-be-allocated-launched-and-register-with-rm 
+For me the following did the trick:
+
+edit $HADOOP_HOME/etc/hadoop/capacity-scheduler.xml and change the following property value from 0.1 to something higher. I changed to 0.5 (50%)
+
+<property>
+    <name>yarn.scheduler.capacity.maximum-am-resource-percent</name>
+    <value>0.5</value>
+    <description>
+        Maximum percent of resources in the cluster which can be used to run application masters i.e. controls number of concurrent running applications.
+    </description>
+</property>
+You may have to allocate more memory to YARN by editing yarn-site.xml by updating the following property:
+
+<property>
+    <name>yarn.nodemanager.resource.memory-mb</name>
+    <value>8192</value>
+</property>
+
+ 

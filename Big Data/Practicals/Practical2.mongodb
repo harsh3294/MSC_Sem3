@@ -1,0 +1,16 @@
+// Q2. Create a mongodb database containing marks of students for subjects like English,Maths and Computer.
+// Insert 3 documents where
+// 1)	First document is having marks of Maths and Computer 
+// 2)	Second document is having marks of Maths and English 
+// 3)	Third document is having marks of all subjects
+
+db.STD_MARKS_DETAILS.insertMany([{Name:"John",Roll_No:01,Subject:{'Maths':91,'Computer':85}},{Name:"Tom",Roll_No:02,Subject:{'Maths':83,'English':45}},{Name:'Bob',Roll_No:03,Subject:{'Maths':76,'English':70,'Computer':85}}])
+
+// Q3. Update marks of 1st document English as 85.
+db.STD_MARKS_DETAILS.updateOne({Name:'John'},{$set:{'Subject.English':85}})
+
+db.STD_MARKS_DETAILS.find({Name:'John'})
+
+// Q4. Retrieve does contain marks of English as 85 and Maths as 91.
+
+db.STD_MARKS_DETAILS.find({$and:[{'Subject.Maths':91},{'Subject.English':85}]})

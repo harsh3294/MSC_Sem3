@@ -1,0 +1,67 @@
+use MSC
+// The drop() command destroys all data from a collection.
+// Make sure you run it against the correct database and collection.
+//db.STD_DATA.drop();
+
+//Q2. Create a new collection Students and add values and display all records.
+
+
+db.STD_DATA.insertMany([{Name: "Harsh", Age: 22, Hobby: ["Reading","Cricket"]},{Name: "Ashok", Age: 23, Hobby: ["Singing","Cricket"]},{Name: "ASHA", Age: 21, Hobby: ["Singing"]},{Name: "John", Age: 22, Hobby: ["Reading","Painting"]},{Name: "Ashok", Age: 20, Hobby: ["Singing","Cricket"]}]) 
+
+db.STD_DATA.find()
+
+//Q3. Display details of Ashok
+db.STD_DATA.find({Name:"Ashok"})
+
+//Q4. Update age of John to 20 keep rest of the data same
+
+db.STD_DATA.findOneAndUpdate({Name:"John"},{$set :{Age:20}})
+
+db.STD_DATA.find({Name:"John"})
+
+// Q5. Update hobby of Harsh as Dancing instead of Reading.
+
+db.STD_DATA.findOneAndUpdate({"Name":"Harsh"}, { $set: {"Hobby.$[element]":"Dancing"}},{ arrayFilters: [{ element: "Reading" }]})
+
+db.STD_DATA.find({Name:"Harsh"})
+
+// Q6. Display name whose age is 22.
+db.STD_DATA.find({Age:20},{Name:1})
+
+// Q7. Delete record of John.
+db.STD_DATA.deleteOne({Name:"John"})
+
+//Q8. Update Age of Ashok first occurrence as 19.
+
+db.STD_DATA.findOneAndUpdate({Name:"Ashok"},{$set :{Age:19}})
+db.STD_DATA.find({Name:"Ashok"})
+
+// Q9. Update Age of Ashok, all Occurrences as 15.
+
+db.STD_DATA.updateMany({Name:"Ashok"},{$set :{Age:15}})
+
+db.STD_DATA.find({Name:"Ashok"})
+
+// Q10. Add mobile no. of Harsh.
+
+db.STD_DATA.updateMany({Name:"Harsh"},{$set :{Mobile:9372685907}})
+
+db.STD_DATA.find({Name:"Harsh"})
+
+// Q11. Display Record whose age is 22 and hobby as Dancing.
+
+db.STD_DATA.find({$and:[{Age:22},{Hobby: "Dancing"}]})
+
+// Q12. Display Record whose age is 15 or hobby as Singing
+db.STD_DATA.find({$or: [{Age:15},{ Hobby:["Singing"]}]})
+
+
+//Q13. Display records from the collection by skipping first 2 records.
+db.STD_DATA.find({}).skip(2).limit(2)
+
+
+//Q14. Display records by sorting names.
+db.STD_DATA.find({}).sort({name:-1})
+
+// Q15. Count the number of records into the collection
+db.STD_DATA.find({}).count({})
