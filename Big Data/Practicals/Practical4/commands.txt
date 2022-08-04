@@ -70,3 +70,5 @@ You may have to allocate more memory to YARN by editing yarn-site.xml by updatin
 </property>
 
  
+================================================================================================
+https://stackoverflow.com/questions/29131449/why-does-hadoop-report-unhealthy-node-local-dirs-and-log-dirs-are-bad
