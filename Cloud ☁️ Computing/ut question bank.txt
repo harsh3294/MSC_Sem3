@@ -1,0 +1,23 @@
+1. What is cloud computing .explain with example
+2. Explain the vision of cloud computing with example  https://www.geeksforgeeks.org/vision-of-cloud-computing/#:~:text=Cloud%20computing%20provides%20the%20facility,are%20needed%20by%20the%20user.
+3. what is parallel computing explain in detail  https://www.geeksforgeeks.org/introduction-to-parallel-computing/ https://www.javatpoint.com/what-is-parallel-computing 
+4. Explain cloud deployments models in  details https://www.geeksforgeeks.org/cloud-deployment-models/  https://phoenixnap.com/blog/what-is-cloud-computing
+5. Explain in brief about virtualization https://www.geeksforgeeks.org/virtualization-cloud-computing-types/ 
+6. Explain difference between hypervisor 1 and hypervisor 2  refer image in the notes folder
+7. Explain the goals and benefits of cloud computing
+8. Explain the characteristics and benefits of cloud computing
+9. Explain the principles of distributed computing
+10. Explain Cloud Delivery Models in detail
+11. Explain characteristics of vertlised environment 
+12. explain taxonomy of virtualization in detail
+13. Explain different types of virtualization in detail like desktop/hardware/network/parallel/full
+14. Explain a. partial virtualization
+			b. programming language level virtualization
+			c. application level virtualization
+			
+15. write advantages and disadvantages of virtualization
+
+
+https://phoenixnap.com/blog/what-is-cloud-computing 
+
+https://www.guru99.com/what-is-cloud-computing-with-example.html#1

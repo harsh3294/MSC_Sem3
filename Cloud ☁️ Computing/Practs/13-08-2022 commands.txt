@@ -1,0 +1,31 @@
+ctrl + alt + t = to open the terminal in the linux (intermediate between user and os)
+
+ifconfig (if not found the 
+1) sudo apt-get update
+2) sudo apt-get install net-tools
+)
+
+
+ip r
+
+hostname 
+
+
+
+$ -> normal user / admin user
+# -> super user/ root user 
+
+apt = advance packaging tools
+
+man = manual pages
+
+touch filename
+
+mkdir dirname 
+
+cp source destination 
+
+mv source destination  (move and Rename)
+
+
+mvv exist new 
