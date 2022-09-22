@@ -1,0 +1,42 @@
+apt -y install docker.io 
+
+docker version
+
+docker pull ubuntu
+
+docker run ubuntu /bin/echo "Welcome to the Docker World!"
+
+
+docker run -it ubuntu /bin/bash
+
+uname -a
+
+exit
+
+
+
+ docker run -it ubuntu /bin/bash
+
+
+docker ps
+
+docker attach 6f6b3bb2cbce
+
+
+docker kill 6f6b3bb2cbce
+
+
+docker images
+
+
+
+docker run ubuntu /bin/bash -c "apt-get update; apt-get -y install nginx"
+
+
+docker ps -a | head -2
+
+
+docker commit 2ea735ff2f51 srv.world/ubuntu-nginx
+
+docker run srv.world/ubuntu-nginx /usr/bin/which nginx
+
