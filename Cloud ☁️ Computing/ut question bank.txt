@@ -21,3 +21,55 @@
 https://phoenixnap.com/blog/what-is-cloud-computing 
 
 https://www.guru99.com/what-is-cloud-computing-with-example.html#1
+
+
+
+
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+Unit 2 QB Cloud
+Explain cloud types n models in detail. 
+What are the cloud deployment techniques explain each one in detail. 
+What is open source ☁️ implementation? Explain with an example. (Eg.openstack) 
+Write a note on open source administration. 
+Explain openstack and its components with diagram. 
+Describe the basic component of IaaS based solution for cloud computing. 
+For PaaS based
+For SaaS based
+What are the main characteristics of PaaS solution? 
+List some of the challenges in cloud computing. 
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Unit 3 QB Cloud
+Explain in detail about recent trends in Cloud Computing. 
+Write a note on Cloud Computing standard. 
+What is host security in ☁️? 
+Explain steps involved in host security in detail. 
+Define data security in cloud. 
+Explain steps involved in data security in cloud☁️. 
+With the help of diagram explain application architecture for cloud.
+
+
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Unit 4 QB Cloud
+Explain the following terms in cloud computing.
+ -Risks
+ -Consequences
+ -Cost
+Explain in detail about AAA. 
+List and explain regulatory and compliance requirements for cloud. (In Detail) 
+Write in brief about SECaas in cloud.
+
+
++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+Assignment 2 Questions
+What is google app engine? 
+What is windows azure? 
+Describe amazon ec2 and its basic features. 
+Describe the architecture of windows azure. 
+Explain SaS servers with their different implementation techniques
+Describe some examples of CRM and ERP implementation based on cloud computing technologies.
