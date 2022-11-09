@@ -29,6 +29,9 @@ hadoop namenode -format
 hdfs namenode -format
 
 
+## unhealthy nodes 
+https://stackoverflow.com/questions/29131449/why-does-hadoop-report-unhealthy-node-local-dirs-and-log-dirs-are-bad 
+https://community.cloudera.com/t5/Support-Questions/Worker-node-on-a-unhealthy-state/td-p/237815 
 
 
 
